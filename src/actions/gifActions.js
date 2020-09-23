@@ -1,5 +1,5 @@
 // TODO: Import all of your importing your API util function
-import { fetchGifs } from '../util/apiUtil';
+import * as APIUtil from '../util/apiUtil';
 // TODO: Set and export a constant for your `RECEIVE_GIFS` action type
 export const RECEIVE_GIFS = 'RECEIVE_GIFS';
 
@@ -12,3 +12,11 @@ export const receiveGifs = gifs => {
 };
 
 // TODO: Write a thunk action creator
+export const fetchGifs = searchTerm => {
+    return dispatch => {
+      return APIUtil.fetchGifs(searchTerm)
+        .then(res => res.json())
+        .then(res => dispatch(receiveGifs(res.data)));
+    }
+};
+

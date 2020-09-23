@@ -1,4 +1,5 @@
 // TODO: Import the `RECEIVE_GIFS` constant
+import { RECEIVE_GIFS } from '../actions/gifActions'
 
 const gifsReducer = (state = [], action) => {
   switch (action.type) {
@@ -8,7 +9,6 @@ const gifsReducer = (state = [], action) => {
         ...state,
         ...action.gifs
       }
-    
     // TODO: Return the previous state by default'
     default:
       return state
